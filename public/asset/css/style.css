@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+@font-face {
+    font-family: "roboto";
+    src: url("../fonts/Roboto-Regular.ttf");
+}
+/*-----------------------------------------------------*/
+                            /*HEADER*/
+
+header {
+    display: flex;
+    width: 100%;
+    background-color: #503B31;
+    height: 70px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+ul li {
+    margin: 0 15px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.logoDuSite {
+    width: 200px;
+}
+
+/*----------------------------------------------------------------*/
+                            /*MAIN*/
+main {
+    display: flex;
+height: 100vh;
+}
+section {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+h1 {
+    color: white;
+    position: absolute;
+    top: 70%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+}
+
+h2 {
+    color: #020202;
+    position: absolute;
+    top: 20%;
+    right: 50%;
+    transform: translate(+90%, -60%);
+}
+
+h3 {
+    color: #020202;
+    position: absolute;
+    top: 20%;
+    right: 50%;
+    transform: translate(+100%, +50%);
+}
+
+img{
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+ #turboAccueil {
+     width: 100%;
+     height: 100%;
+ }
+
+#turboChaud {
+    width: 100%;
+    height: 70%;
+}
+
+#moteurInterieur {
+    width: 100%;
+    height: 30%;
+}
+
+/*----------------------------------------------------------------------*/
+                            /*FOOTER*/
+footer nav {
+    background-color: #020202;
+    width: 100%;
+    height: 50px;
+}
+.lien {
+    display: flex;
+    justify-content: space-between;
+}

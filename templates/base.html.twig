@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('asset/css/style.css') }}">
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+    </head>
+    <body>
+    <header>
+        <nav>
+                <ul>
+                    <li class="logoDuSite"><img src="{{asset('images/LogoDuSite.png')}}"></li>
+            <li><a href="pieces_detachees">PIECES DETACHEES</a></li>
+                <li><a href="inscription">INSCRIPTION</a></li>
+                    <li><a href="connexion">CONNEXION</a></li>
+                </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="wrapperHome">
+        {% block main %}
+        <h1>ECHANGES de PIECES R21</h1>
+        <h2>Explication du site</h2>
+        <h3>Règles du site</h3>
+    <div id="turboAccueil">
+    <img src="{{asset('images/TurboAccueil.png')}}">
+    </div>
+        <section>
+    <div id="turboChaud">
+        <img src="{{asset('images/turboChaud.png')}}">
+        </div>
+        <div id="moteurInterieur">
+            <img src="{{asset('images/moteurInterieur.png')}}">
+    </div>
+</section>
+        {% block body %}{% endblock %}
+{% end block %}
+        </div>
+    </main>
+    <footer>
+        <nav>
+<ul class="lien">
+    <li><a href="regleDeSecurité">Règle de sécurité</a></li>
+    <li><a href="Copyright">Copyright</a></li>
+</ul>
+        </nav>
+    </footer>
+    </body>
+</html>
