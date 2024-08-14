@@ -21,23 +21,23 @@
 
     <main>
         <div class="wrapperHome">
-        {% block main %}
-        <h1>ECHANGES de PIECES R21</h1>
-        <h2>Explication du site</h2>
-        <h3>Règles du site</h3>
-    <div id="turboAccueil">
-    <img src="{{asset('images/TurboAccueil.png')}}">
-    </div>
-        <section>
-    <div id="turboChaud">
-        <img src="{{asset('images/turboChaud.png')}}">
+            <h1>ECHANGES de PIECES R21</h1>
+            <h2>Explication du site</h2>
+            <h3>Règles du site</h3>
+            <div id="turboAccueil">
+            <img src="{{asset('images/TurboAccueil.png')}}">
+            </div>
+            <section>
+                <div id="turboChaud">
+                    <img src="{{asset('images/turboChaud.png')}}">
+                </div>
+                <div id="moteurInterieur">
+                    <img src="{{asset('images/moteurInterieur.png')}}">
+                </div>
+            </section>
         </div>
-        <div id="moteurInterieur">
-            <img src="{{asset('images/moteurInterieur.png')}}">
-    </div>
-</section>
         {% block body %}{% endblock %}
-{% end block %}
+
         </div>
     </main>
     <footer>
