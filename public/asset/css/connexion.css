@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+@font-face {
+    font-family: "roguehero";
+    src: url("../fonts/roguehero.ttf");
+}
+
+
+
+/*main connexion*/
+
+form{
+    width:50%;
+    display: block;
+    background-color: rgba(0,0,0,.5);
+    padding:20px;
+    margin:auto;
+}
+
+.inputWrapper{
+    position: relative;
+    margin:50px 0;
+}
+
+input, label{
+    display: block;
+    width:100%;
+}
+
+label{
+    position: absolute;
+    top:0;
+    left:0;
+    color: black;
+    font-family: roguehero, sans-serif;
+    transition: .5s;
+}
+
+input{
+    border:none;
+    border-bottom: solid 1px white;
+    background-color: transparent;
+}
+
+input:not(:placeholder-shown) + label, input:focus + label{
+    transform: translateY(-30px);
+}
+
+img {
+    display: flex;
+    position: relative;
+
+}
+#revue {
+    font-size: 25%;
+    position: absolute;
+
+}
+
+#logoConnexion {
+    font-size: 25%;
+    position: absolute;
+}

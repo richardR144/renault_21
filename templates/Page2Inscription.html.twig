@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Renault_21{% endblock %}
+
+{% block body %}
+    <main id="inscription">
+        <div id="revue">
+            <img src="images/revueTechniqueOrange.jpg">
+        </div>
+        <form action="">
+            <h2>BIENVENUE SUR LE SITE D'ECHANGES DE PIECES R21</h2>
+            <div class="inputWrapper">
+                <div class="inputWrapper">
+                    <input type="text" placeholder="Entrez votre prénom">
+                </div>
+                <div class="inputWrapper">
+                    <input type="text" placeholder="Entrez votre nom">
+                </div>
+            </div>
+            <div class="inputWrapper">
+                <input type="password" id="pass1" placeholder="Entrez votre mot de passe">
+            </div>
+            <div class="inputWrapper">
+                <input type="password" id="pass2" placeholder="Confirmez votre mot de passe">
+            </div>
+            <div class="inputWrapper">
+                <input type="email" placeholder="Entrez votre email">
+            </div>
+            <div class="inputWrapper">
+                <select>
+                    <option value="" selected disabled>Choississez votre pays</option>
+                    <option value="fr">France</option>
+                    <option value="us">Etats-unis</option>
+                    <option value="es">Espagne</option>
+                    <option value="it">Italie</option>
+                    <option value="pt">Portugal</option>
+                    <option value="uk">Angleterre</option>
+                </select>
+            </div>
+
+            <div id="logoMain">
+                <img src="images/LogoDuSite.png">
+            </div>
+            <div id="submit">
+                <input type="submit" value="Envoyer">
+            </div>
+        </form>
+    </main>
+{% endblock %}

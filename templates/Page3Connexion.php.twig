@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Renault_21{% endblock %}
+
+{% block body %}
+<main id="connexion">
+    <h2>BIENVENUE SUR LE SITE D'ECHANGES DE PIECES R21</h2>
+    <form action="">
+        <div class="inputWrapper">
+            <input id="text" placeholder=" " type="text">
+            <label for="text">E-mail</label>
+        </div>
+        <div class="inputWrapper">
+            <input id="text2" placeholder=" " type="text">
+            <label for="text2">Password</label>
+        </div>
+        <div class="inputWrapper">
+            <div id="submit">
+                <input type="submit" value="Envoyer">
+            </div>
+        </div>
+    </form>
+    <div id="revue">
+    <img src="revueTechniqueOrange.jpg">
+    </div>
+    <div id="logoConnexion">
+    <img src="LogoDuSite.png">
+    </div>
+</main>
+{% endblock %}
