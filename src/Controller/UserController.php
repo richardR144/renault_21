@@ -1,11 +1,11 @@
 <?php
-namespace App\Http\Controllers;
+namespace App\Controller;
 
 use Doctrine\ORM\EntityManagerInterface;
 use http\Env\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 
 class UserController extends AbstractController

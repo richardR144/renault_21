@@ -15,7 +15,7 @@ class UserType extends AbstractType
         $builder
             ->add('email')
             ->add('roles')
-                        //en dessous c'est pour que le password se hashe à l'entrée
+                        //en dessous c'est pour que le password se hashe à l'entrée quand l'user rentre son mdp
             ->add('password', PasswordType::class, [
                 'hash_property_path' => 'password', 'mapped' => false,])
             ->add('name')
