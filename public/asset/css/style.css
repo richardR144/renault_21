@@ -123,8 +123,9 @@ form{
 
 input, select{
     display: block;
-    background-color: white;
-    border:solid 1px rgb(3, 0, 52);
+    background-color: transparent;
+    color: #FFFFFF;
+    border:solid 1px white;
     border-radius:8px;
     margin:10px 0;
     width:100%;
@@ -212,7 +213,16 @@ img {          /*enfant*/
     width: 100%;
 }
 
-/********************************MAIN connexion Page3********************************/
+inputWrapper, option {
+   color: #020202;
+}
+#selected{
+    color:white
+}
+
+select:focus #selected{
+    color: #020202;
+}
 
 form{
     width:50%;
@@ -237,7 +247,6 @@ label{
     top:0;
     left:0;
     color: #FFFFFF;
-    font-family: roguehero, sans-serif;
     transition: .5s;
     font-size: 30px;
 }
@@ -255,8 +264,8 @@ input:not(:placeholder-shown) + label, input:focus + label{
 img {
     display: flex;
     position: relative;
-
 }
+
 #revue {
     font-size: 25%;
 }
@@ -268,6 +277,69 @@ img {
 
 #inscription {
     display: flex;
+    align-items: center;
+}
+
+#logoConnexion{
+    width: 100%;
+}
+
+/********************************MAIN connexion Page3********************************/
+
+
+#page3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+#titreP3{
+    color: #020202;
+    font-size: 30px;
+}
+#img-leftP3{
+    display: flex;
+    width: 25%;
+    padding: 5px;
+}
+
+#img-rigthP3{
+    display: flex;
+    width: 25%;
+    padding: 5px;
+}
+
+/***********************Main Page 4 DEPOT********************************/
+
+
+
+#depot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-left {
+    width: 100px; /* Ajustez la taille selon vos besoins */
+    height: auto;
+}
+
+.separator {
+    width: 1px;
+    height: 80%;
+    background-color: black;
+    margin: 0 20px; /* Espace entre l'image et le formulaire */
+}
+
+.form-container {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 

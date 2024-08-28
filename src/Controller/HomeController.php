@@ -32,6 +32,7 @@ class HomeController extends AbstractController{
     {
         return $this->render('Page3Connexion.html.twig');
     }
+
     #[Route('/page4', name:'Page4Depot')]
     public function HomeController2 (Request $request): Response
     {

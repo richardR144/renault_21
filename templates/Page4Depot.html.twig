@@ -4,21 +4,17 @@
 
 {% block body %}
     <main id="depot">
-        <img src="revueTechnique.jpeg">
-        <h2>BIENVENUE SUR LE SITE D'ECHANGES DE PIECES R21</h2>
-        <div class="containerCategory">
-            <h3>TYPE DE LA CATEGORIE ET SON TITRE</h3>
-        </div>
-        <div class="containerImage">
-            <h3>IMAGE DE LA PIECE</h3>
-        </div>
-        <div class="contrainerDescription">
-            <h3>DESCRIPTION DE LA PIECE</h3>
-        </div>
-        <form action="">
+        <img src="{{asset('images/revueTechnique.jpeg')}}">
+        <h2 id="titreP4">BIENVENUE SUR LE SITE D'ECHANGES DE PIECES R21</h2>
+        <div class="separator"></div>
+        <h4>Formulaire de Téléchargement de Fichier</h4>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <label for="file">Deposer une image</label>
+            <input type="file" id="file" name="file" required>
             <div id="submit">
                 <input type="submit" value="Envoyer">
             </div>
         </form>
     </main>
 {% endblock %}
+

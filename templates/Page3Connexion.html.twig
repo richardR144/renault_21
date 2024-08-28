@@ -4,27 +4,29 @@
 
 {% block body %}
 <main id="connexion">
-    <h2>BIENVENUE SUR LE SITE D'ECHANGES DE PIECES R21</h2>
+    <h2 id="titreP3">BIENVENUE SUR LE SITE D'ECHANGES DE PIECES R21</h2>
+    <section id="page3">
+    <div id="img-leftP3">
+        <img src="{{asset('images/noticeIntérieur.png')}}">
+    </div>
     <form action="">
         <div class="inputWrapper">
             <input id="text" placeholder=" " type="text">
-            <label for="text">E-mail</label>
+            <label for="text">Entrez votre e-mail</label>
         </div>
         <div class="inputWrapper">
             <input id="text2" placeholder=" " type="text">
-            <label for="text2">Password</label>
+            <label for="text2">Entrez votre mot de passe</label>
         </div>
         <div class="inputWrapper">
             <div id="submit">
-                <input type="submit" value="Envoyer">
+                <input type="submit" value="Connection">
             </div>
         </div>
     </form>
-    <div id="revue">
-    <img src="revueTechniqueOrange.jpg">
+        <div id="img-rigthP3">
+    <img src="{{asset('images/imageRigolotte.jpeg')}}">
     </div>
-    <div id="logoConnexion">
-    <img src="LogoDuSite.png">
-    </div>
+    </section>
 </main>
 {% endblock %}
