@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Piece;
+use App\Form\PieceType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -34,9 +36,21 @@ class HomeController extends AbstractController{
     }
 
     #[Route('/page4', name:'Page4Depot')]
-    public function HomeController2 (Request $request): Response
+    public function upload(Request $request): Response
     {
-        return $this->render('Page4Depot.html.twig');
+        $piece = new Piece();
+
+        $form = $this->createForm(PieceType::class, $piece);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+        }
+
+        return $this->render('Page4Depot.html.twig', [
+            'form' => $form,
+        ]);
     }
 
     #[Route('/page5', name:'Page5List')]

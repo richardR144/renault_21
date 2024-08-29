@@ -1,8 +1,10 @@
 <?php
 namespace App\Controller;
 
+use App\Entity\User;
+use App\Form\PieceType;
 use Doctrine\ORM\EntityManagerInterface;
-use http\Env\Request;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
@@ -50,4 +52,9 @@ class UserController extends AbstractController
             }
         return $this->render(view: 'publicView/page/user/insertUser.html.twig');
 }
+}
+class ImageUploadController extends AbstractController
+{
+
+
 }
