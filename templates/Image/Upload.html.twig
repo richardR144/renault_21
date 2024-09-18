@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Télécharger une image{% endblock %}
+
+{% block body %}
+    <h1>Télécharger une image</h1>
+
+    /*permet de générer une balise d'ouverture*/
+    {{ form_start(form) }}
+
+    /*C'est une fonction Twig (pour symfony) afin de rendre un formulaire HTML/gére les erreurs de validation/
+    gére les champs du labels et images*/
+<div>
+    {{ form_widget(form) }}
+    {{ form_errors(form.image) }}
+    {{ form_label(form.image) }}
+</div>
+    <button type="submit">Télécharger</button>
+
+    /*permet la fermuture de la balise*/
+    {{ form_end(form) }}
+
+{% endblock %}

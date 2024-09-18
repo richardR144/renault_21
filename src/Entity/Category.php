@@ -18,9 +18,6 @@ class Category
     #[ORM\Column(length: 255)]
     private ?string $libelle = null;
 
-    /**
-     * @var Collection<int, Piece>
-     */
     #[ORM\OneToMany(targetEntity: Piece::class, mappedBy: 'category')]
     private Collection $pieces;
 
@@ -46,9 +43,6 @@ class Category
         return $this;
     }
 
-    /**
-     * @return Collection<int, Piece>
-     */
     public function getPieces(): Collection
     {
         return $this->pieces;
@@ -67,7 +61,6 @@ class Category
     public function removePiece(Piece $piece): static
     {
         if ($this->pieces->removeElement($piece)) {
-            // set the owning side to null (unless already changed)
             if ($piece->getCategory() === $this) {
                 $piece->setCategory(null);
             }

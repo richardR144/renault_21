@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Creation de messages Renault_21{% endblock %}
+
+{% block body %}
+<h1> Créer un message</h1>
+    <form method="post">
+        <div>
+            <label for="expediteur">Expéditeur</label>
+            <input type="text" id="expediteur" name="expediteur" required>
+        </div>
+        <div>
+            <label for="destinataire">Destinataire</label>
+            <input type="text" id="destinataire" name="destinataire" required>
+        </div>
+        <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit">Envoyer</button>
+    </form>
+
+
+
+
+{% endblock %}

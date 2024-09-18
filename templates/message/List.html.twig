@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des messages{% endblock %}
+
+{% block body %}
+    <h1>Liste des messages</h1>
+    <ul>
+        {% for message in messages %}
+            <li id="messagerie">
+                <strong>Expéditeur:</strong> {{ message.expediteur }}<br>
+                <strong>Destinataire:</strong> {{ message.destinataire }}<br>
+                <strong>Message:</strong> {{ message.messageContent }}<br>
+                <strong>Date d'envoi:</strong> {{ message.dateEnvoi|date('Y-m-d H:i:s') }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

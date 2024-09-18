@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Renault_21{% endblock %}
+
+{% block body %}
+<main id="inscription">
+    <div id="revue">
+        <img src="images/Revue technique orange.png">
+    </div>
+    <form method="post">
+        <div id="titrePage2">
+            <h2>BIENVENUE SUR LE SITE D'ECHANGES DE PIECES R21</h2>
+        </div>
+        <div class="inputWrapper">
+            <input type="text" placeholder="Entrez votre prénom" name="firstname" value="{{ user.firstname }}">
+            <input type="text" placeholder="Entrez votre nom" name="name" value="{{ user.name }}">
+        </div>
+        <div id="submit">
+            <input type="submit" value="Envoyer">
+        </div>
+    </form>
+</main>
+{% endblock %}

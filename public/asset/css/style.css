@@ -5,6 +5,13 @@
     list-style: none;
 }
 
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
 @font-face {
     font-family: "roguehero";
     src: url("../fonts/roguehero.ttf");
@@ -26,7 +33,7 @@ nav {
     width: 100%;
 }
 
-ul {
+#ul {
     display: flex;
     list-style: none;
     align-items: center;
@@ -45,7 +52,25 @@ ul li a {
 
 .logoDuSite {
     width: 200px;
-    padding-top: 15px;
+}
+
+.lien{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+#flashSuccess{
+    background-color: green;
+}
+
+#flashFail{
+    background-color: red;
+}
+
+#flashFail, #flashSuccess{
+    padding: 2%;
 }
 
 /*----------------------------------------------------------------*/
@@ -62,11 +87,13 @@ section {
 }
 
 h1 {
+    box-shadow: 5px 5px 2px navajowhite;
     color: white;
     position: absolute;
-    top: 70%;
+    bottom: 60%;
     left: 35%;
     transform: translate(-50%, -50%);
+    z-index: 800;
 }
 
 #explicationSite {
@@ -75,6 +102,7 @@ h1 {
     top: 20%;
     right: 50%;
     transform: translate(+90%, -60%);
+    z-index: 200;
 }
 
 #regle {
@@ -83,6 +111,7 @@ h1 {
     top: 20%;
     right: 50%;
     transform: translate(+100%, +50%);
+    z-index: 250;
 }
 
 img{
@@ -108,7 +137,7 @@ img{
 }
 
 /*----------------------------------------------------------------------*/
-                                /*PAGE 2 Connexion*/
+                                /*PAGE 2 Inscription*/
 h2{
     text-align: center;
     color: #FFFFFF;
@@ -121,7 +150,7 @@ form{
     width:30%;
 }
 
-input, select{
+input, select, textarea{
     display: block;
     background-color: transparent;
     color: #FFFFFF;
@@ -139,9 +168,10 @@ input, select{
 }
 
 .inputWrapper{
-    display: flex;
+    display: block;
     gap:5px;
     position: relative;
+    width:100%;
 }
 
 input{
@@ -202,7 +232,6 @@ input[type="submit"]{
     color: #020202;
 }
 
-
 #revue {        /*Parent*/
     width: 25%;
     margin-left: 40px;
@@ -216,6 +245,7 @@ img {          /*enfant*/
 inputWrapper, option {
    color: #020202;
 }
+
 #selected{
     color:white
 }
@@ -244,7 +274,7 @@ input, label{
 
 label{
     position: absolute;
-    top:0;
+    top:-45px;
     left:0;
     color: #FFFFFF;
     transition: .5s;
@@ -284,7 +314,7 @@ img {
     width: 100%;
 }
 
-/********************************MAIN connexion Page3********************************/
+/********************************MAIN connexionPage3********************************/
 
 
 #page3 {
@@ -299,7 +329,7 @@ img {
     color: #020202;
     font-size: 30px;
 }
-#img-leftP3{
+img-leftP3{
     display: flex;
     width: 25%;
     padding: 5px;
@@ -310,8 +340,26 @@ img {
     width: 25%;
     padding: 5px;
 }
+/*****************************Page 3 connexion******************************************/
+
 
 /***********************Main Page 4 DEPOT********************************/
+#formDepot{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+}
+#formDepot form{
+    margin: 0;
+}
+#left, #rigth{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 22%;
+}
 
 #depot {
     display: flex;
@@ -410,28 +458,73 @@ img {
     background-color: #3b82f6;
     color: #020202;
 }
-
-
-
-
-
-
-
+/*------------------------------------------------------------------------------------*/
+                    /*page7 Règles de sécurity et explication du site*/
+#containerR1{
+    display: flex;
+}
+#containerE2{
+    display: flex;
+}
 
 /*----------------------------------------------------------------------*/
                                 /*FOOTER Accueil*/
+
 footer nav {
     background-color: #020202;
     width: 100%;
-    height: 50px;
+}
+ul{
+    margin-top: 2%;
+    margin-bottom: 3%;
+}
+
+#pieceFooter{
+    display: none;
 }
 
 .lien {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 
 
-
-
+/*------------------------------------------------------------------------------------*/
+                                    /*Responsive*/
+/*Telephone*/
+@media screen and (max-width: 480px){
+    #pieceHeader{
+        display: none;
+    }
+    #pieceFooter{
+        display: block;
+    }
+    ul{
+        margin-top: 3%;
+    }
+    form{
+        width: 100%;
+    }
+    #moteurInterieur{
+        display: none;
+    }
+    #turboAccueil{
+        width: 100%;
+        height: 100%;
+    }
+    .wrapperHome{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+    }
+    .wrapperHome section{
+        width: 100%;
+    }
+    .logoDuSite{
+        width: 85px;
+    }
+}

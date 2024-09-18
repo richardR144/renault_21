@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Renault_21 Profil{% endblock %}
+{% block body %}
+    <main>
+
+    <div>{{ app.user.name }}</div>
+    <div>{{ app.user.firstname }}</div>
+    <div><a href="{{ path('user_update') }}">Modifier le profile</a></div>
+        <div><a href="{{ path('user.delete') }}">Supprimer le profil</a></div>
+
+    </main>
+{% endblock %}

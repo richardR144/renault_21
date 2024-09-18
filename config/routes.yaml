@@ -4,3 +4,8 @@ controllers:
         namespace: App\Controller
     type: attribute
 
+
+create_message:
+    path: /create-message
+    controller: App\Controller\MessageController::createMessage
+
