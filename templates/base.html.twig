@@ -17,11 +17,11 @@
             <ul class="lien">
                 <a href="{{ path('base') }}">
                 <li class="logoDuSite"><img src="{{asset('images/LogoDuSite.png')}}" alt="logo"></li></a>
-                <li id="pieceHeader"><a href="{{ path('piece.ajouter') }}">PIECES DETACHEES</a></li>
-                <li><a href="{{ path('user.inscription') }}">INSCRIPTION</a></li>
-                <li><a href="{{ path('user.message') }}">MESSAGE</a></li>
-                <li><a href="{{ path('app_login') }}">CONNEXION</a></li>
-                <li><a href="{{ path('app_logout') }}">DECONNEXION</a></li>
+                <li id="pieceHeader"><a href="{{ path('piece.ajouter') }}" alt="pièces détachées de véhicule">PIECES DETACHEES</a></li>
+                <li><a href="{{ path('user.inscription') }}" alt="Faîtes votre inscription">INSCRIPTION</a></li>
+                <li><a href="{{ path('user.message') }}" alt="laisser un message">MESSAGE</a></li>
+                <li><a href="{{ path('app_login') }}" alt="Connectez-vous">CONNEXION</a></li>
+                <li><a href="{{ path('app_logout') }}" alt="Déconnectez-vous">DECONNEXION</a></li>
             </ul>
         </nav>
     </header>
@@ -42,10 +42,10 @@
     <footer>
         <nav>
 <ul class="lien">
-    <li><a href="{{ 'regle.regleDeSecurité' }}">Règle de sécurité</a></li>
-    <li id="pieceFooter"><a href="{{ path('piece.ajouter') }}">PIECES DETACHEES</a></li>
-    <li><a href="{{ 'regle.mentionsLegales' }}">Mentions Légales</a></li>
-    <li><a href="{{ 'regle.copyright' }}">Copyright</a></li>
+    <li><a href="{{ 'regle.regleDeSecurité' }}" alt="consulter les règles de sécurité">Règle de sécurité</a></li>
+    <li id="pieceFooter"><a href="{{ path('piece.ajouter') }}" alt="Ajouter des pièces">PIECES DETACHEES</a></li>
+    <li><a href="{{ 'regle.mentionsLegales' }}" alt="Consulter les mentions légales">Mentions Légales</a></li>
+    <li><a href="{{ 'regle.copyright' }}" alt="Consulter le copyright">Copyright</a></li>
 </ul>
         </nav>
     </footer>
