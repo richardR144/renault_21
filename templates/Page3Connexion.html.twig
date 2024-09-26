@@ -1,27 +1,25 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}connexion{% endblock %}
+{% block title %}Renault_21{% endblock %}
 
 {% block body %}
 <main id="connexion">
-    <h2 id="titreP3">BIENVENUE SUR LE SITE ECHANGES DE PIECES R21</h2>
     <section id="page3">
     <div id="img-leftP3">
         <img src="{{asset('images/noticeIntérieur.png')}}">
     </div>
     <form action="">
+        <div id="titrePage3">CONNEXION</div>
+
         <div class="inputWrapper position-relative">
-            <input id="text" placeholder="entrezVotreEmail"type="email" name="email">Entrez votre email
-            <label for="text">Entrez votre e-mail</label>
-        </div>
+            <input id="text" placeholder="entrez_votre_email"type="email" name="email">Entrez votre email</div>
+
         <div class="inputWrapper position-relative">
-            <input type="password" id="text2" placeholder=" " name="password">
-            <label for="text2">Entrez votre mot de passe</label>
-        </div>
+            <input type="password" id="text2" placeholder="Entrez_votre_mot_de_passe" name="password">Entrez votre mot de passe</div>
+
         <div class="inputWrapper position-relative">
             <div id="submit">
-                <input type="submit" value="Connection">
-            </div>
+                <input type="submit" value="Connection">Connexion</div>
         </div>
     </form>
         <div id="img-rigthP3">

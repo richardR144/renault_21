@@ -9,11 +9,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 
-class HomeController extends AbstractController{
-#[Route('/', name:'base')]
-    public function index (Request $request): Response
+class BaseController extends AbstractController
+{
+#[Route('/base', name:'base')]
+    public function base (Request $request): Response
     {
-        return $this->render('Page1Accueil.html.twig');
+        return $this->render('base.html.twig');
     }
 }
 

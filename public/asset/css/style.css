@@ -138,16 +138,15 @@ img{
 
 /*----------------------------------------------------------------------*/
                                 /*PAGE 2 Inscription*/
-h2{
-    text-align: center;
-    color: #FFFFFF;
-    font-size: 20px;
-}
+
 
 form{
     display: block;
-    margin:50px auto;
-    width:30%;
+    width:50%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding:20px;
+    background-color: rgba(0,0,0,.5);
 }
 
 input, select, textarea{
@@ -174,13 +173,7 @@ input, select, textarea{
     width:100%;
 }
 
-input{
-    border:none;
-    border-bottom: solid 1px white;
-    background-color: transparent;
-    color: #FFFFFF;
-    font-size: 1.5rem;
-}
+
 
 input::placeholder {
     color: #FFFFFF;
@@ -254,14 +247,6 @@ select:focus #selected{
     color: #020202;
 }
 
-form{
-    width:50%;
-    display: block;
-    background-color: rgba(0,0,0,.5);
-    padding:20px;
-    margin:auto;
-}
-
 .inputWrapper{
     position: relative;
     margin:50px 0;
@@ -303,6 +288,7 @@ img {
 #logoConnexion {
     font-size: 25%;
     position: absolute;
+    width: 100%;
 }
 
 #inscription {
@@ -310,9 +296,6 @@ img {
     align-items: center;
 }
 
-#logoConnexion{
-    width: 100%;
-}
 
 /********************************MAIN connexionPage3********************************/
 
@@ -325,11 +308,7 @@ img {
     width: 100%;
     gap: 10px;
 }
-#titreP3{
-    color: #020202;
-    font-size: 30px;
-}
-img-leftP3{
+#img-leftP3{
     display: flex;
     width: 25%;
     padding: 5px;
@@ -340,191 +319,212 @@ img-leftP3{
     width: 25%;
     padding: 5px;
 }
-/*****************************Page 3 connexion******************************************/
 
-
-/***********************Main Page 4 DEPOT********************************/
-#formDepot{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: row;
-    width: 100%;
-}
-#formDepot form{
-    margin: 0;
-}
-#left, #rigth{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 22%;
+/***********************Main Profile-User********************************/
+#profileUser{
+    margin-left: 30px;
 }
 
-#depot {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 20px;
-    margin-top: 20px;
-}
+    /***********************Main Page 4 DEPOT********************************/
 
-#titreP4, #h4{
-    color: #020202;
-    font-size: 30px;
-    z-index: 10;
-    text-align: center;
-    position: static;
-    transform: unset;
-}
-
-#h4{
-    font-size:24px;
-    text-align: center;
-}
-.flex{
-    display: flex;
-    gap:20px;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Style pour l'image à gauche */
-#img-leftP4 {
-    width:45%
-}
-
-#formP4{
-    position: relative;
-    width:45%
-}
-
-#formP4::before{
-    content: "";
-    position: absolute;
-    top:50%;
-    left:-30px;
-    transform: translateY(-50%);
-    height: 80%;
-    width: 1px;
-    background-color: #020202;
-}
-
-
-#formP4 form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-#formP4 label {
-    font-size: 1em;
-    color: #FFFFFF;
-}
-
-#submit4{
-    position: relative;
-    width:40%;
-    margin-left:auto;
-}
-
-#submit4::before{
-    content:"\21E8";
-    width: 25px;
-    height: 25px;
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    line-height: 22px;
-    font-size:1.2rem;
-    background-color: red;
-    border-radius: 50%;
-    padding:10px;
-    border:solid 3px #3b82f6;
-    box-shadow: 2px 2px 2px rgba(0,0,0,0.7);
-    position: absolute;
-    left:-25px;
-    top:50%;
-    transform: translate(0,-50%);
-    transition: all 1s ease;
-}
-
-#submit4:hover::before{
-    transform: translate(270px, -50%) rotate(180deg);
-    box-shadow: -2px -2px 2px rgba(0,0,0,0.7);
-}
-
-#submit4:hover input[type="submit"]{
-    background-color: #3b82f6;
-    color: #020202;
-}
-/*------------------------------------------------------------------------------------*/
-                    /*page7 Règles de sécurity et explication du site*/
-#containerR1{
-    display: flex;
-}
-#containerE2{
-    display: flex;
-}
-
-/*----------------------------------------------------------------------*/
-                                /*FOOTER Accueil*/
-
-footer nav {
-    background-color: #020202;
-    width: 100%;
-}
-ul{
-    margin-top: 2%;
-    margin-bottom: 3%;
-}
-
-#pieceFooter{
-    display: none;
-}
-
-.lien {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-
-
-/*------------------------------------------------------------------------------------*/
-                                    /*Responsive*/
-/*Telephone*/
-@media screen and (max-width: 480px){
-    #pieceHeader{
-        display: none;
-    }
-    #pieceFooter{
-        display: block;
-    }
-    ul{
-        margin-top: 3%;
-    }
-    form{
+    #formDepot {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: row;
         width: 100%;
     }
-    #moteurInterieur{
-        display: none;
+
+    #formDepot form {
+        margin: 0;
     }
-    #turboAccueil{
-        width: 100%;
-        height: 100%;
+
+    #left, #rigth {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 22%;
     }
-    .wrapperHome{
+
+    #depot {
         display: flex;
         justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        height: 100%;
+        align-items: flex-start;
+        padding: 20px;
+        margin-top: 20px;
     }
-    .wrapperHome section{
+
+    #titreP4, #h4 {
+        color: #020202;
+        font-size: 30px;
+        z-index: 10;
+        text-align: center;
+        position: static;
+        transform: unset;
+    }
+
+    #h4 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .flex {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Style pour l'image à gauche */
+
+    #img-leftP4 {
+        width: 45%
+    }
+
+    #formP4 {
+        position: relative;
+        width: 45%
+    }
+
+    #formP4::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -30px;
+        transform: translateY(-50%);
+        height: 80%;
+        width: 1px;
+        background-color: #020202;
+    }
+
+
+    #formP4 form {
+        display: flex;
+        flex-direction: column;
         width: 100%;
     }
-    .logoDuSite{
-        width: 85px;
+
+    #formP4 label {
+        font-size: 1em;
+        color: #FFFFFF;
     }
-}
+
+    #submit4 {
+        position: relative;
+        width: 40%;
+        margin-left: auto;
+    }
+
+    #submit4::before {
+        content: "\21E8";
+        width: 25px;
+        height: 25px;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        line-height: 22px;
+        font-size: 1.2rem;
+        background-color: red;
+        border-radius: 50%;
+        padding: 10px;
+        border: solid 3px #3b82f6;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
+        position: absolute;
+        left: -25px;
+        top: 50%;
+        transform: translate(0, -50%);
+        transition: all 1s ease;
+    }
+
+    #submit4:hover::before {
+        transform: translate(270px, -50%) rotate(180deg);
+        box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.7);
+    }
+
+    #submit4:hover input[type="submit"] {
+        background-color: #3b82f6;
+        color: #020202;
+    }
+
+    /*------------------------------------------------------------------------------------*/
+    /*page7 Règles de sécurity et explication du site*/
+
+    #containerR1 {
+        display: flex;
+    }
+
+    #containerE2 {
+        display: flex;
+    }
+
+    /*----------------------------------------------------------------------*/
+    /*FOOTER Accueil*/
+
+    footer nav {
+        background-color: #020202;
+        width: 100%;
+    }
+
+    ul {
+        margin-top: 2%;
+        margin-bottom: 3%;
+    }
+
+    #pieceFooter {
+        display: none;
+    }
+
+    .lien {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+
+    /*------------------------------------------------------------------------------------*/
+    /*Responsive Telephone*/
+
+    @media screen and (max-width: 480px) {
+        #pieceHeader {
+            display: none;
+        }
+
+        #pieceFooter {
+            display: block;
+        }
+
+        ul {
+            margin-top: 3%;
+        }
+
+        form {
+            width: 100%;
+        }
+
+        #moteurInterieur {
+            display: none;
+        }
+
+        #turboAccueil {
+            width: 100%;
+            height: 100%;
+        }
+
+        .wrapperHome {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .wrapperHome section {
+            width: 100%;
+        }
+
+        .logoDuSite {
+            width: 85px;
+        }
+    }
+
+

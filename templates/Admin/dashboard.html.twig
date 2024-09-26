@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Renault_21_tableauDeBordAdmin{% endblock %}
+
+{% block body %}
+    <main id="adminDashboard">
+        <h1>Bienvenue sur le tableau de bord R 21, {{ admin.username }} !</h1>
+
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <section>
+            <h2>Statistiques</h2>
+            <p>Nombres d'utilisateurs : {{ user_count }}</p>
+            <p>Nombres de messages : {{ message_count }}</p>
+        </section>
+
+        <section>
+            <h2>Gestion des utilisateurs</h2>
+            <a href="{{ path('admin_users') }}">Voir tous les utilisateurs</a>
+        </section>
+    </main>
+{% endblock %}
+
+//Le titre de la page est défini comme “Tableau de bord Admin”
+Un message de bienvenue personnalisé est affiché pour l’administrateur
+Les messages flash de succès sont affichés
+Une section pour les statistiques de base (comme le nombre d’utilisateurs et de messages) est incluse
+Un lien pour accéder à la gestion des utilisateurs est fourni

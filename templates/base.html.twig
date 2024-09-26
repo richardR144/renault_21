@@ -18,35 +18,25 @@
                 <a href="{{ path('base') }}">
                 <li class="logoDuSite"><img src="{{asset('images/LogoDuSite.png')}}" alt="logo"></li></a>
                 <li id="pieceHeader"><a href="{{ path('piece.ajouter') }}" alt="pièces détachées de véhicule">PIECES DETACHEES</a></li>
-                <li><a href="{{ path('user.inscription') }}" alt="Faîtes votre inscription">INSCRIPTION</a></li>
+                <li><a href="{{ path('user.inscription') }}" alt="Vous devez vous inscrire">INSCRIPTION</a></li>
                 <li><a href="{{ path('user.message') }}" alt="laisser un message">MESSAGE</a></li>
                 <li><a href="{{ path('app_login') }}" alt="Connectez-vous">CONNEXION</a></li>
                 <li><a href="{{ path('app_logout') }}" alt="Déconnectez-vous">DECONNEXION</a></li>
             </ul>
         </nav>
     </header>
-    <main>
-    {% for message in app.flashes('success') %}
-        <h2 id="flashSuccess">{{ message }}</h2>
-    {% endfor %}
 
-    {% for message in app.flashes('connexion') %}
-        <h2 id="flashSuccess">{{ message }}{{ user.name }}</h2>
-    {% endfor %}
+        {% block body %}
 
-    {% for message in app.flashes('fail') %}
-        <h2 id="flashFail">{{ message }}</h2>
-    {% endfor %}
-    {% block body %}{% endblock %}
-    </main>
+        {% endblock %}
     <footer>
         <nav>
-<ul class="lien">
-    <li><a href="{{ 'regle.regleDeSecurité' }}" alt="consulter les règles de sécurité">Règle de sécurité</a></li>
-    <li id="pieceFooter"><a href="{{ path('piece.ajouter') }}" alt="Ajouter des pièces">PIECES DETACHEES</a></li>
-    <li><a href="{{ 'regle.mentionsLegales' }}" alt="Consulter les mentions légales">Mentions Légales</a></li>
-    <li><a href="{{ 'regle.copyright' }}" alt="Consulter le copyright">Copyright</a></li>
-</ul>
+            <ul class="lien">
+                <li><a href="{{ 'regle.regleDeSecurité' }}" alt="consulter les règles de sécurité">Règle de sécurité</a></li>
+                <li id="pieceFooter"><a href="{{ path('piece.ajouter') }}" alt="Ajouter des pièces">PIECES DETACHEES</a></li>
+                <li><a href="{{ 'regle.mentionsLegales' }}" alt="Consulter les mentions légales">Mentions Légales</a></li>
+                <li><a href="{{ 'regle.copyright' }}" alt="Consulter le copyright">Copyright</a></li>
+            </ul>
         </nav>
     </footer>
     <script src="js/index.js"></script>

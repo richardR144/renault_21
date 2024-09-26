@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Renault_21 Profil{% endblock %}
+{% block body %}
+    <main id="profileUser">
+        <h1>Bienvenue sur votre profile, {{ user.username }} !</h1>
+            <p>{{ Ici vous pouvez modifier votre profil ou le supprimer }}</p>
+
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+            <div>{{ app.user.name }}</div>
+            <div>{{ app.user.firstname }}</div>
+            <div><a href="{{ path('user_update') }}">Modifier le profile</a></div>
+            <div><a href="{{ path('user.delete') }}">Supprimer le profile</a></div>
+    </main>
+{% endblock %}
