@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Pièces{% endblock %}
+
+{% block body %}
+    <h1>Liste des Pièces</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Libellé</th>
+            <th>Contenu</th>
+            <th>Image</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for piece in pieces %}  {# itérer sur les pièces #}
+            <tr>
+                <td>{{ piece.libelle }}</td>
+                <td>{{ piece.content }}</td>
+                <td>
+                    {% if piece.image %} {# Afficher l'image si elle existe #}
+                        <img src="{{ asset('uploads/images/' ~ piece.image) }}" alt="{{ piece.libelle }}" width="100">
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{{ path('piece.modifier', {'id': piece.id}) }}" class="btn btn-primary btn-sm">Modifier</a>
+                    <form method="post" action="{{ path('piece.supprimer', {'id': piece.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette pièce ?');">
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('delete' ~ piece.id) }}">
+                        <button class="btn btn-danger btn-sm">Supprimer</button>
+                    </form>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucune pièce trouvée.</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('piece.ajouter') }}" class="btn btn-success">Ajouter une pièce</a> {# Lien pour ajouter une pièce #}
+
+{% endblock %}

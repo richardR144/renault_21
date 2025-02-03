@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Renault_21{% endblock %}
+
+
+{% block body %}
+    <main>
+        <h1>Ajouter une pièce</h1>
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <button type="submit" class="btn btn-primary">Soumettre</button>
+            {{ form_end(form) }}
+
+            <h2>Carrousel de pièces</h2>
+            <div id="pieceCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    {% for piece in pieces %}
+                        <div class="carousel-item {% if loop.first %}active{% endif %}">
+                            <img src="{{ piece.image }}" class="d-block w-100" alt="{{ piece.name }}">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>{{ piece.name }}</h5>
+                                <p>{{ piece.description }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <a class="carousel-control-prev" href="#pieceCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#pieceCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+
+            <h2>Messages</h2>
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message.nom }} {{ message.prenom }}: {{ message.message }}</li>
+                {% endfor %}
+
+                {{ form_start(form) }}
+                {{ form_row(form.content) }}
+                {{ form_row(form.category) }}
+                {{ form_row(form.libelle) }}
+                {{ form_row(form.image) }}
+                {{ form_row(form.submit) }}
+                {{ form_end (form) }}
+            </ul>
+        <section id="formDepot">
+            <div id="left">
+                <div>
+                    <img src="{{ asset('images/Cardan.jpg')}}">
+                </div>
+                <div>
+                    <img src="{{ asset('images/Démarreur.jpg') }}" alt="">
+                </div>
+            </div>
+
+
+
+            <div id="rigth">
+            <div>
+                <img src="{{ asset('images/Pompette.webp') }}">
+            </div>
+            <div>
+                <img src="{{ asset('images/fauteuilAvantDroit.jpeg')}}">
+            </div>
+        </div>
+    </section>
+    </main>
+{% endblock %}
