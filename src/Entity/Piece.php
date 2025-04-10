@@ -2,9 +2,10 @@
 
 namespace App\Entity;
 
+
+use Doctrine\ORM\Mapping as ORM;
 use App\Repository\PieceRepository;
 use Doctrine\DBAL\Types\Types;
-use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PieceRepository::class)]
 class Piece
@@ -31,35 +32,41 @@ class Piece
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)] // Autoriser la valeur null pour l'image
     private ?string $image = null;
 
-    public function getId(): ?int
+    public function setCreatedAt(\DateTimeImmutable $createdAt): static
     {
-        return $this->id;
+        $this->createdAt = $createdAt;
+        return $this;
     }
-
-    public function getLibelle(): ?string
+    public function getCreatedAt(): \DateTimeImmutable
     {
-        return $this->libelle;
+        return $this->createdAt;
     }
 
     public function setLibelle(string $libelle): static
     {
         $this->libelle = $libelle;
-
         return $this;
     }
-
-    public function getContent(): ?string
-    {
-        return $this->content;
+    public function getLibelle(): string{
+        return $this->libelle;
     }
 
     public function setContent(string $content): static
     {
         $this->content = $content;
+        return $this;
+    }
+    public function getContent(): string
+    {
+        return $this->content;
+    }
 
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
         return $this;
     }
 
@@ -67,47 +74,24 @@ class Piece
     {
         return $this->user;
     }
-
-    public function setUser(?User $user): static
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    public function getCategory(): ?Category
-    {
-        return $this->category;
-    }
-
     public function setCategory(?Category $category): static
     {
         $this->category = $category;
-
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
-    {
-        return $this->createdAt;
+    public function getCategory(): ?Category{
+        return $this->category;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $createdAt): static
+    public function setImage(?string $image): static
     {
-        $this->createdAt = $createdAt;
-
+        $this->image = $image;
         return $this;
     }
-
     public function getImage(): ?string
     {
         return $this->image;
     }
 
-    public function setImage(string $image): static
-    {
-        $this->image = $image;
-
-        return $this;
-    }
 }

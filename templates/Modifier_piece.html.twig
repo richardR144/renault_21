@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier la pièce{% endblock %}
+
+{% block body %}
+    <h1>Modifier la pièce</h1>
+
+    {{ form_start(form) }} {# Début du formulaire #}
+
+    {{ form_row(form.libelle, {'label': 'Libellé'}) }} {# Champ pour le libellé #}
+    {{ form_row(form.content, {'label': 'Contenu'}) }} {# Champ pour le contenu #}
+    {{ form_row(form.image, {'label': 'Image'}) }} {# Champ pour l'image #}
+    {{ form_row(form.user, {'label': 'Utilisateur'}) }} {# Champ pour l'utilisateur #}
+    {{ form_row(form.category, {'label': 'Catégorie'}) }} {# Champ pour la catégorie #}
+
+    <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+
+    {{ form_end(form) }} {# Fin du formulaire #}
+
+    <a href="{{ path('piece.liste') }}" class="btn btn-secondary">Retour à la liste</a> {# Lien pour retourner à la liste #}
+
+{% endblock %}

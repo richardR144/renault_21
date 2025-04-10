@@ -5,14 +5,14 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-//Create
-class LoginController extends AbstractController
+
+class TestController extends AbstractController
 {
-    #[Route('/login', name: 'app_login')]
+    #[Route('/test', name: 'app_test')]
     public function index(): Response
     {
-        $currentUser = $this->getUser();
-
-        return $this->render('Connexion.html.twig', ['user' => $currentUser]);
+        return $this->render('test/index.html.twig', [
+            'controller_name' => 'TestController',
+        ]);
     }
 }

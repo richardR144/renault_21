@@ -9,12 +9,77 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Attribute\Route;
+
+
+
+/** je suis en mesure d'afficher des images dans votre application Symfony,
+ * que ce soit à partir de chemins d'images enregistrés dans la base de données
+ * ou via un système de téléchargement d'images
+ */
+/**uploader les images**/
+class PieceAutoType extends AbstractType
+{
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder
+            ->add('nom', TextType::class)
+            ->add('description', TextType::class)
+            ->add('prix', TextType::class)
+            ->add('quantite', TextType::class)
+            ->add('chemin_image', FileType::class, [
+                'label' => 'Image (JPEG, PNG, ...)',
+                'mapped' => false, // On ne mappe pas ce champ à l'entité
+                'required' => false,
+            ]);
+    }
+
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults([
+            'data_class' => PiecesAuto::class,
+        ]);
+    }
+}
+
+
+
+/**  traitement de l'image dans le controller sous forme de formulaire*/
+ /** @Route("/pieces/new", name="pieces_auto_new")
+
+public function new(Request $request): Response
+{
+    $piece = new PiecesAuto();
+    $form = $this->createForm(PieceAutoType::class, $piece);
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+        $file = $form['chemin_image']->getData();
+        if ($file) {
+            $filename = uniqid() . '.' . $file->guessExtension();
+            $file->move($this->getParameter('images_directory'), $filename);
+            $piece->setCheminImage('images/' . $filename);
+        }
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($piece);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('pieces_auto');
+    }
+
+    return $this->render('pieces/new.html.twig', [
+        'form' => $form->createView(),
+    ]);
+}
+**/
+
+
+
 
 class PieceController extends AbstractController
 {
-    // constructeur
-
-    #[Route('/ajouter-piece', name: 'piece_ajouter')]
+    #[Route('/ajouter-piece', name: 'piece.ajouter')]
     public function upload(Request $request): Response
     {
         $piece = new Piece();
@@ -44,11 +109,8 @@ class PieceController extends AbstractController
             $this->entityManager->persist($piece);
             $this->entityManager->flush();
         }
-        return $this->redirectToRoute('page5_piece_list');
+        return $this->redirectToRoute('piece.liste');
     }
-
-
-
     #[Route('/modifier-piece/{id}', name: 'piece.modifier', methods: ['GET', 'POST'])]
     public function modifier($id, Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -72,8 +134,6 @@ class PieceController extends AbstractController
             'piece' => $piece,
         ]);
     }
-
-
     #[Route('/supprimer-piece/{id}', name: 'piece.supprimer', methods: ['POST'])]
     public function supprimerPiece(Request $request, int $id, EntityManagerInterface $entityManager): Response
     {
@@ -93,12 +153,10 @@ class PieceController extends AbstractController
         }
         return $this->redirectToRoute('piece.liste'); // Redirige vers la liste ou une autre page
     }
+    #[Route('/liste', name: 'piece.liste', methods: ['GET'])]
+    public function listePiece(Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $pieces = $entityManager->getRepository(Piece::class)->findAll();
+        return $this->render('ListPiece.html.twig', ['pieces' => $pieces]);
+    }
 }
-
-
-
-
-
-
-
-

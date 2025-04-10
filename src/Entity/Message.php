@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Entity;
-require_once 'vendor/autoload.php';
+
 
 /**
  * @ORM\Entity()

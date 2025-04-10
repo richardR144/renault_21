@@ -53,12 +53,12 @@ class UserController extends AbstractController
 
             if (!$email){
                 $this->addFlash('fail', 'Il manque l\'adresse mail');
-                return $this->render('Page2Inscription.html.twig');
+                return $this->render('Inscription.html.twig');
             }
 
             if (!$password){
                 $this->addFlash('fail', 'Il manque le mot de passe');
-                return $this->render('Page2Inscription.html.twig');
+                return $this->render('Inscription.html.twig');
             }
 
             if($password !== $passwordConfirm) {
@@ -83,7 +83,7 @@ class UserController extends AbstractController
 
         }
 
-        return $this->render('Page2Inscription.html.twig');
+        return $this->render('Inscription.html.twig');
     }
 
     #[Route('/connexion', name: 'user.connexion')]
@@ -97,12 +97,12 @@ class UserController extends AbstractController
 
             if (!$email){
                 $this->addFlash('fail', 'Il manque l\'adresse mail');
-                return $this->render('Page3Connexion.html.twig');
+                return $this->render('Connexion.html.twig');
             }
 
             if (!$password){
                 $this->addFlash('fail', 'Il manque le mot de passe');
-                return $this->render('Page3Connexion.html.twig');
+                return $this->render('Connexion.html.twig');
 
             } else{
                 // je créais mon instance de class user
@@ -120,7 +120,7 @@ class UserController extends AbstractController
 
             }
         }
-        return $this->render('Page3Connexion.html.twig');
+        return $this->render('Connexion.html.twig');
     }
 
 
@@ -128,21 +128,21 @@ class UserController extends AbstractController
     #[Route('/depot', name: 'user.depot')]
     public function depot(Request $request): Response
 {
-        return $this->render('Page4Depot.html.twig');
+        return $this->render('Depot.html.twig');
 }
 
   
 
-    #[Route('/page5ListPiece', name: 'user.pieceRef')]
+    #[Route('/ListPiece', name: 'user.pieceRef')]
     public function pieceRef(Request $request): Response
     {
-        return $this->render('page5ListPiece.html.twig');
+        return $this->render('ListPiece.html.twig');
     }
 
-    #[Route('/page6Regle', name: 'user.regle')]
+    #[Route('/Regle', name: 'user.regle')]
     public function regle(Request $request): Response
     {
-        return $this->render('page6Regle.html.twig');
+        return $this->render('Regle.html.twig');
     }
 
     //Delete

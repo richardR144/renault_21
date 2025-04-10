@@ -22,7 +22,7 @@ body{
 header {
     display: flex;
     width: 100%;
-    background-color: #503B31;
+    background-color: gray;
     height: 80px;
 }
 
@@ -74,7 +74,7 @@ ul li a {
 }
 
 /*----------------------------------------------------------------*/
-                            /*MAIN Accueil Page1*/
+                            /*MAIN Accueil */
 .wrapperHome {
     display: flex;
     height: 100vh;
@@ -297,10 +297,10 @@ img {
 }
 
 
-/********************************MAIN connexionPage3********************************/
+/********************************MAIN connexion********************************/
 
 
-#page3 {
+#connexion {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -447,7 +447,7 @@ img {
     }
 
     /*------------------------------------------------------------------------------------*/
-    /*page7 Règles de sécurity et explication du site*/
+    /* Règles de sécurity et explication du site*/
 
     #containerR1 {
         display: flex;

@@ -4,68 +4,77 @@ namespace App\Controller;
 
 
 use App\Entity\Message;
-use App\Repository\MessageRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\UploadedFile; //gère les fichiers uploadés
-use \DateTime;   //importation de DateTime depuis l'espace de noms global
+
 class MessageControler extends AbstractController
 {
-    #[Route('/message', name:'user.message')]
-   public function createMessage(Request $request, EntityManagerInterface $entityManager):Response
+    #[Route('/message', name: 'user.message')]
+    public function createMessage(Request $request, EntityManagerInterface $entityManager): Response
     {
-        if ($request->getMethod() == "POST") {
+        $message = new Message();
+
+        if ($request->isMethod('POST')) {
             $expediteur = $request->request->get('expediteur');
             $destinataire = $request->request->get('destinataire');
             $messageContent = $request->request->get('messageContent');
-
-            $message = new Message();
 
             $message->setExpediteur($expediteur);
             $message->setDestinataire($destinataire);
             $message->setMessageContent($messageContent);
             $message->setDateEnvoi(new \DateTime());
 
-            /* Ajout de la gestion de l'image
-             * @var UploadedFile $image */
-            $image = $request->files->get('image');
+            $imageFile = $request->files->get('image');
 
-            /*si l'image est présente alors on associe la récup. de l'image, la génération
-            d'un nom uniq, le déplacement de l'image et son association avec le message*/
+            if ($imageFile instanceof UploadedFile) {
+                // Validation de l'image (type, taille, etc.)
+                $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
+                if (!in_array($imageFile->getMimeType(), $allowedMimeTypes)) {
+                    $this->addFlash('error', 'Type de fichier non autorisé. Seuls les images JPEG, PNG et GIF sont acceptées.');
+                    return $this->render('message/create.html.twig');
+                }
 
-            if ($image) {
-                $imageName = md5(uniqid()) . '.' . $image->guessExtension();
+                $maxFileSize = 10 * 1024 * 1024; // 10 Mo
+                if ($imageFile->getSize() > $maxFileSize) {
+                    $this->addFlash('error', 'La taille du fichier est trop importante. La taille maximale autorisée est de 10 Mo.');
+                    return $this->render('message/create.html.twig');
+                }
 
-                /*uniqid(): Cette fonction génère un identifiant unique,
-                  md5(): Cette fonction applique l’algorithme de hachage, ça produit une chaîne de 32 caractères et
-                  $image->guessExtension(): Cette méthode devine l’extension du fichier image (jpg, png, etc...) */
+                $newFilename = md5(uniqid()) . '.' . $imageFile->guessExtension();
 
-                $image->move($this->getParameter('images_directory'), $imageName);
+                try {
+                    $imageFile->move($this->getParameter('images_directory'), $newFilename);
+                    $message->setImage($newFilename);
 
-                /*$message->setImage($imageName) : Cette méthode associe le nom de l’image, qui est stocké dans le répertoire entity/Message
-                 ça permet de sauvegarder le nom de l'image dans la base de données et cela garantit aussi la sécurité et son accessibilité*/
+                    $entityManager->persist($message);
+                    $entityManager->flush();
 
-                $message->setImage($imageName);
-
-                /*cette méthode (but) indique à Doctrine que l'objet $message doit être sauvegarder dans la BDD et quelle est géréé par l'EntityManager*/
-                $entityManager->persist($message);
-                $entityManager->flush();    /*flush éxécute les requêtes SQL et les synchronise avec la BDD et son but est le même*/
-
-                return $this->redirectToRoute('message_list');
+                    $this->addFlash('success', 'Message envoyé avec succès.');
+                    return $this->redirectToRoute('message_list');
+                } catch (\Exception $e) {
+                    $this->addFlash('error', 'Une erreur est survenue lors de l\'enregistrement du message. Veuillez réessayer.');
+                    // Log de l'erreur pour le débogage
+                    error_log($e->getMessage());
+                    return $this->render('message/Create.html.twig');
+                }
+            } else {
+                $this->addFlash('error', 'Veuillez sélectionner une image.');
+                return $this->render('message/Create.html.twig');
             }
-            return $this->render('message/create.html.twig');
         }
-        return $this->render('message/create.html.twig');
+
+        return $this->render('message/Create.html.twig');
     }
 
 
     /*La méthode listMessages utilise maintenant le MessageRepository pour récupérer
     les messages au lieu de l’EntityManager, c'est mieux pour mon code (préocupations séparés, réutilisable et pour les test unitaires*/
     #[Route('/messages', name: 'message_list')]
-    public function listMessages(MessageRepository $messageRepository): Response
+    public function listMessage(MessageRepository $messageRepository): Response
     {
         $messages = $messageRepository->findAll();
         return $this->render('message/list.html.twig', [
